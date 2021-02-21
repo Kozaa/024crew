@@ -5,7 +5,7 @@ import MusicPlayer from "./MusicPlayer";
 
 const HeaderWrapper = styled.nav`
   height: 10vh;
-  min-height: 50px;
+  min-height: 60px;
   width: 100%;
   padding: 0 100px;
   background-color: ${({ theme }) => theme.colors.main};

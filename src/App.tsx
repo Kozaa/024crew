@@ -6,6 +6,7 @@ import {
 } from "styled-components";
 import { main, luna } from "./themes";
 import Header from "./components/Header";
+import HeroPlayer from "./components/HeroPlayer";
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -17,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
     background: none;
+    border: none;
     
   }
 
@@ -44,7 +46,7 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
-        <div>test</div>
+        <HeroPlayer />
       </ThemeProvider>
     </>
   );
