@@ -40,6 +40,7 @@ const StyledNavItem = styled.div`
   min-width: 100px;
   height: 100%;
   font-family: ${({ theme }) => theme.fonts.secondary};
+  font-size: 1.5em;
   display: flex;
   align-items: center;
   justify-content: center;

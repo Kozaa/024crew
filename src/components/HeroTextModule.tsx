@@ -21,7 +21,7 @@ const HeroTextWrapper = styled.div`
 const HeroTextModule = () => (
   <HeroTextWrapper>
     <h2>PIESEK</h2>
-    <span style={{ marginBottom: "7px" }}>
+    <span style={{ marginBottom: "12px" }}>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque eum sequi
       tenetur unde quae, beatae, temporibus sed, suscipit excepturi eligendi
       magnam explicabo blanditiis! Inventore suscipit aut ut recusandae itaque
