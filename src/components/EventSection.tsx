@@ -12,7 +12,7 @@ const events: Event[] = [];
 
 const EventSectionWrapper = styled.section`
   width: 100%;
-  padding: 50px 0;
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;

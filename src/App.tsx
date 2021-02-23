@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import HeroPlayer from "./components/HeroPlayer";
 import MusicPlayer from "./components/MusicPlayer";
 import EventSection from "./components/EventSection";
+import MusicSection from "./components/MusicSection";
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -31,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.bg};
     color: white;
     font-family: ${({ theme }) => theme.fonts.main};
+    font-size: 15px;
   }
 
   #root {
@@ -60,6 +62,11 @@ const App = () => {
         <MusicPlayer fixed={true} showPlayer={showPlayer} />
         <HeroPlayer />
         <EventSection />
+        <MusicSection />
+        <br />
+        <br />
+        <br />
+        <br />
       </ThemeProvider>
     </>
   );
