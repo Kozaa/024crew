@@ -5,7 +5,9 @@ const StyledSectionTitle = styled.header`
   font-size: 1.2em;
   letter-spacing: 2px;
   padding: 5px 30px;
-  margin: 30px auto;
+  padding-top: 30px;
+  margin: 0 auto;
+  margin-bottom: 30px;
   border-bottom: ${({ theme }) => "2px solid " + theme.colors.secondary};
   text-align: center;
 `;

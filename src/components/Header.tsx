@@ -9,6 +9,7 @@ const HeaderWrapper = styled.nav`
   width: 100%;
   padding: 0 100px;
   background-color: ${({ theme }) => theme.colors.main};
+  transition: background-color 1s ease-in;
   position: relative;
   overflow: hidden;
 
@@ -27,7 +28,7 @@ const HeaderWrapper = styled.nav`
     border-left: 200px solid transparent;
     border-right: 200px solid transparent;
 
-    border-top: 200px solid #f00;
+    border-top: ${({ theme }) => "200px solid " + theme.colors.secondary};
   }
 `;
 

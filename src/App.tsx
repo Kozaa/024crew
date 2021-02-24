@@ -10,11 +10,18 @@ import HeroPlayer from "./components/HeroPlayer";
 import MusicPlayer from "./components/MusicPlayer";
 import EventSection from "./components/EventSection";
 import MusicSection from "./components/MusicSection";
+import CrewSection from "./components/CrewSection";
+import Footer from "./components/Footer";
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
+
+    transition: border-color 1s ease-in;
+
   }
+
+
 
   a, button, input {
     font-family: inherit;
@@ -30,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: 200vh;
     width: 100%;
     background-color: ${({ theme }) => theme.colors.bg};
+    transition: background-color 1s ease-in;
     color: white;
     font-family: ${({ theme }) => theme.fonts.main};
     font-size: 15px;
@@ -59,14 +67,17 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
-        <MusicPlayer fixed={true} showPlayer={showPlayer} />
+
+        <MusicPlayer
+          fixed={true}
+          showPlayer={showPlayer}
+          onClick={() => setTheme(luna)}
+        />
         <HeroPlayer />
         <EventSection />
         <MusicSection />
-        <br />
-        <br />
-        <br />
-        <br />
+        <CrewSection />
+        <Footer />
       </ThemeProvider>
     </>
   );

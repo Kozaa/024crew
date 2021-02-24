@@ -46,10 +46,11 @@ const StyledImg = styled.img`
 interface Props {
   fixed?: boolean;
   showPlayer?: boolean;
+  onClick?: any;
 }
 
-const MusicPlayer = ({ fixed = false, showPlayer = true }: Props) => (
-  <MusicPlayerWrapper fixed={fixed} showPlayer={showPlayer}>
+const MusicPlayer = ({ fixed = false, showPlayer = true, onClick }: Props) => (
+  <MusicPlayerWrapper fixed={fixed} showPlayer={showPlayer} onClick={onClick}>
     <StyledImg src={tempo} />
     <ButtonWrapper>
       <PlayButton width="80%" height="80%" />

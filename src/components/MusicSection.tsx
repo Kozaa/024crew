@@ -22,13 +22,20 @@ const images = [
 ];
 
 const MusicSectionWrapper = styled.section`
+  width: 100%;
+  height: fit-content;
+  background-color: ${({ theme }) => theme.colors.main};
+  transition: background-color 1s ease-in;
+`;
+
+const MusicSectionGrid = styled.div`
   width: 80%;
-  height: 90vh;
+  height: 100vh;
   padding: 20px 0;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 27.5% 27.5% 22.5% 22.5%;
-  grid-template-rows: 30% 40% 30%;
+  // grid-template-rows: 30% 40% 30%;
 
   align-items: center;
   justify-content: center;
@@ -87,12 +94,10 @@ const MusicSection = () => {
   };
 
   return (
-    <>
+    <MusicSectionWrapper>
       <SectionTitle>MUZYKA</SectionTitle>
-      <MusicSectionWrapper>
-        {images.map(imgGridConstructor)}
-      </MusicSectionWrapper>
-    </>
+      <MusicSectionGrid>{images.map(imgGridConstructor)}</MusicSectionGrid>
+    </MusicSectionWrapper>
   );
 };
 

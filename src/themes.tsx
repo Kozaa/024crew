@@ -19,7 +19,7 @@ export const luna: DefaultTheme = {
   },
   colors: {
     main: "#080E1C",
-    secondary: "#ED0000",
-    bg: "#FCFF6F",
+    secondary: "#FCFF6F",
+    bg: "#19233b",
   },
 };
