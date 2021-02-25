@@ -12,6 +12,8 @@ import EventSection from "./components/EventSection";
 import MusicSection from "./components/MusicSection";
 import CrewSection from "./components/CrewSection";
 import Footer from "./components/Footer";
+import lunaImg from "./assets/images/luna.png";
+import tempo from "./assets/images/tempo.png";
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -19,6 +21,10 @@ const GlobalStyle = createGlobalStyle`
 
     transition: border-color 1s ease-in;
 
+  }
+
+  circle, path {
+    transition: stroke 1s ease-in, fill 1s ease-in;
   }
 
 
@@ -52,6 +58,8 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   const [theme, setTheme] = useState<DefaultTheme>(main);
   const [showPlayer, setShowPlayer] = useState(false);
+  const [song, setSong] = useState(tempo);
+  const [imgChanging, setImgChanging] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -60,18 +68,30 @@ const App = () => {
 
       y > headerEnd ? setShowPlayer(true) : setShowPlayer(false);
     });
-  });
+  }, []);
+
+  const handleSongChange = () => {
+    setTheme(luna);
+    setImgChanging(true);
+
+    setTimeout(() => {
+      setSong(lunaImg);
+      setImgChanging(false);
+    }, 500);
+  };
 
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header />
+        <Header song={song} />
 
         <MusicPlayer
           fixed={true}
           showPlayer={showPlayer}
-          onClick={() => setTheme(luna)}
+          onClick={handleSongChange}
+          song={song}
+          imgChanging={imgChanging}
         />
         <HeroPlayer />
         <EventSection />

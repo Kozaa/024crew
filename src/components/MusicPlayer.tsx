@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React, { RefObject, useEffect, useRef } from "react";
+import styled, { keyframes } from "styled-components";
 import PlayButton from "./PlayButton";
 import PauseButton from "./PauseButton";
 import gameplay from "../assets/images/gameplay.png";
@@ -26,7 +26,8 @@ const MusicPlayerWrapper = styled.div<Props>`
 
   align-content: center;
 
-  transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in, min-width 1s ease-in-out,
+    border-color 0.5s ease-in;
 `;
 
 const ButtonWrapper = styled.div`
@@ -39,23 +40,39 @@ const ButtonWrapper = styled.div`
   flex-shrink: 0;
 `;
 
-const StyledImg = styled.img`
+interface StyledImgProps {
+  imgChanging: boolean;
+}
+
+const StyledImg = styled.img<StyledImgProps>`
   height: 46px;
+  opacity: ${({ imgChanging }) => (imgChanging ? 0 : 1)};
+  transition: opacity 0.5s ease-in;
 `;
 
 interface Props {
   fixed?: boolean;
   showPlayer?: boolean;
   onClick?: any;
+  song?: any;
+  imgChanging?: boolean;
 }
 
-const MusicPlayer = ({ fixed = false, showPlayer = true, onClick }: Props) => (
-  <MusicPlayerWrapper fixed={fixed} showPlayer={showPlayer} onClick={onClick}>
-    <StyledImg src={tempo} />
-    <ButtonWrapper>
-      <PlayButton width="80%" height="80%" />
-    </ButtonWrapper>
-  </MusicPlayerWrapper>
-);
+const MusicPlayer = ({
+  fixed = false,
+  showPlayer = true,
+  onClick,
+  song,
+  imgChanging = false,
+}: Props) => {
+  return (
+    <MusicPlayerWrapper fixed={fixed} showPlayer={showPlayer} onClick={onClick}>
+      <StyledImg src={song} imgChanging={imgChanging} />
+      <ButtonWrapper>
+        <PlayButton width="80%" height="80%" />
+      </ButtonWrapper>
+    </MusicPlayerWrapper>
+  );
+};
 
 export default MusicPlayer;

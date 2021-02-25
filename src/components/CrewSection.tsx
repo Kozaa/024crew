@@ -4,6 +4,7 @@ import SectionTitle from "./SectionTitle";
 import crewImg from "../assets/images/crew-member-placeholder.png";
 import crewBG from "../assets/images/crew-bg.png";
 import CrewMember from "./CrewMember";
+import Gallery from "./Gallery";
 
 const CrewSectionWrapper = styled.section`
   width: 100%;
@@ -74,6 +75,7 @@ const CrewSection = () => (
         <CrewMember name={member.name} img={member.img} />
       ))}
     </CrewGrid>
+    <Gallery />
   </CrewSectionWrapper>
 );
 

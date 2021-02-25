@@ -49,6 +49,7 @@ const SongTitle = styled.div`
 
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-size: 1.5em;
+  text-align: center;
 
   :hover + div {
     transform: scale(1.05);
@@ -60,13 +61,14 @@ interface Props {
   bg: string;
   rows: string;
   columns: string;
+  title: string;
 }
 
-const SongBlock = ({ bg, columns, rows }: Props) => (
+const SongBlock = ({ bg, columns, rows, title }: Props) => (
   <SongBlockWrapper rows={rows} columns={columns}>
     <StyledSongBlock bg={bg} />
 
-    <SongTitle>CHILLWAGON</SongTitle>
+    <SongTitle>{title}</SongTitle>
   </SongBlockWrapper>
 );
 

@@ -1,25 +1,7 @@
 import styled from "styled-components";
 import SongBlock from "./SongBlock";
 import SectionTitle from "./SectionTitle";
-import chillwagon from "../assets/images/chillwagon.png";
-import gameplay from "../assets/images/gameplay.png";
-import kodeksMarki from "../assets/images/kodeks-marki.png";
-import krzyz from "../assets/images/krzyz.png";
-import luna from "../assets/images/luna.png";
-import tempo from "../assets/images/tempo.png";
-import trapiraci from "../assets/images/trapiraci.png";
-import wiecej from "../assets/images/wiecej.png";
-
-const images = [
-  chillwagon,
-  kodeksMarki,
-  krzyz,
-  tempo,
-  luna,
-  trapiraci,
-  gameplay,
-  wiecej,
-];
+import { songData, Album } from "../data";
 
 const MusicSectionWrapper = styled.section`
   width: 100%;
@@ -43,60 +25,67 @@ const MusicSectionGrid = styled.div`
 `;
 
 const MusicSection = () => {
-  const imgGridConstructor = (img: string) => {
+  const imgGridConstructor = (album: Album) => {
     let rows = "auto";
     let columns = "auto";
 
     //CHANGE THEM TO SPAN SO MAYBE IT WROKS WELL WHEN WE CHANGE TEMPALTE ON MOBILE
-    switch (img) {
-      case chillwagon:
+    switch (album.title) {
+      case "chillwagon":
         rows = "1 / span 2";
         columns = "1 / span 2";
         break;
 
-      case kodeksMarki:
+      case "kodeksMarki":
         rows = "1/2";
         columns = "3/4";
         break;
 
-      case krzyz:
+      case "krzyz":
         rows = "1/2";
         columns = "4/5";
         break;
 
-      case tempo:
+      case "tempo":
         rows = "2/3";
         columns = "3/5";
         break;
 
-      case luna:
+      case "luna":
         rows = "3/4";
         columns = "1/2";
         break;
 
-      case trapiraci:
+      case "trapiraci":
         rows = "3/4";
         columns = "2/3";
         break;
 
-      case gameplay:
+      case "gameplay":
         rows = "3/4";
         columns = "3/4";
         break;
 
-      case wiecej:
+      case "wiecej":
         rows = "3/4";
         columns = "4/5";
         break;
     }
 
-    return <SongBlock bg={img} rows={rows} columns={columns} />;
+    return (
+      <SongBlock
+        bg={album.img}
+        rows={rows}
+        columns={columns}
+        title={album.title.toUpperCase()}
+      />
+    );
   };
 
   return (
     <MusicSectionWrapper>
       <SectionTitle>MUZYKA</SectionTitle>
-      <MusicSectionGrid>{images.map(imgGridConstructor)}</MusicSectionGrid>
+      <MusicSectionGrid>{songData.map(imgGridConstructor)}</MusicSectionGrid>
     </MusicSectionWrapper>
   );
 };

@@ -49,10 +49,10 @@ const StyledNavItem = styled.div`
   flex-shrink: 0;
 `;
 
-const Header = () => (
+const Header = ({ song }: any) => (
   <HeaderWrapper>
     <StyledNavItem>
-      <MusicPlayer />
+      <MusicPlayer song={song} />
     </StyledNavItem>
     <StyledNavItem>
       <a href="#">muzyka</a>
