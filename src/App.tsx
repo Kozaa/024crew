@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   createGlobalStyle,
   ThemeProvider,
@@ -12,18 +12,18 @@ import EventSection from "./components/EventSection";
 import MusicSection from "./components/MusicSection";
 import CrewSection from "./components/CrewSection";
 import Footer from "./components/Footer";
-import lunaImg from "./assets/images/luna.png";
-import tempo from "./assets/images/tempo.png";
+import { Song, songData } from "./data";
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 
     transition: border-color 1s ease-in;
 
   }
 
-  circle, path {
+  circle, path, line {
     transition: stroke 1s ease-in, fill 1s ease-in;
   }
 
@@ -52,13 +52,15 @@ const GlobalStyle = createGlobalStyle`
   #root {
     width: 100%;
     height: 100%;
+
+
   }
 `;
 
 const App = () => {
   const [theme, setTheme] = useState<DefaultTheme>(main);
   const [showPlayer, setShowPlayer] = useState(false);
-  const [song, setSong] = useState(tempo);
+  const [song, setSong] = useState<Song>(songData[0].songs[0]);
   const [imgChanging, setImgChanging] = useState(false);
 
   useEffect(() => {
@@ -70,12 +72,17 @@ const App = () => {
     });
   }, []);
 
-  const handleSongChange = () => {
-    setTheme(luna);
+  const handleSongChange = (song: Song) => {
+    if (song.title === "olszakumpel - luna (prod. secretrank)") {
+      setTheme(luna);
+    } else {
+      setTheme(main);
+    }
+
     setImgChanging(true);
 
     setTimeout(() => {
-      setSong(lunaImg);
+      setSong(song);
       setImgChanging(false);
     }, 500);
   };
@@ -95,7 +102,7 @@ const App = () => {
         />
         <HeroPlayer />
         <EventSection />
-        <MusicSection />
+        <MusicSection handleSongChange={handleSongChange} />
         <CrewSection />
         <Footer />
       </ThemeProvider>

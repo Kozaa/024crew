@@ -62,10 +62,11 @@ interface Props {
   rows: string;
   columns: string;
   title: string;
+  handleClick: () => void;
 }
 
-const SongBlock = ({ bg, columns, rows, title }: Props) => (
-  <SongBlockWrapper rows={rows} columns={columns}>
+const SongBlock = ({ bg, columns, rows, title, handleClick }: Props) => (
+  <SongBlockWrapper rows={rows} columns={columns} onClick={handleClick}>
     <StyledSongBlock bg={bg} />
 
     <SongTitle>{title}</SongTitle>

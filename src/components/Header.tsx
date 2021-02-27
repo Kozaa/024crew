@@ -55,13 +55,13 @@ const Header = ({ song }: any) => (
       <MusicPlayer song={song} />
     </StyledNavItem>
     <StyledNavItem>
-      <a href="#">muzyka</a>
+      <a href="#muzyka">muzyka</a>
     </StyledNavItem>
     <StyledNavItem>
       <StyledImg src={logo} alt="024crew logo" />
     </StyledNavItem>
     <StyledNavItem>
-      <a href="#">crew</a>
+      <a href="#crew">crew</a>
     </StyledNavItem>
     <StyledNavItem>
       <a href="#">kontakt</a>

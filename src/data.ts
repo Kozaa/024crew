@@ -12,7 +12,7 @@ import hot16 from "./assets/images/hot16.png";
 import hamburgierek from "./assets/images/hamburgierek.png";
 import balet from "./assets/images/balet.png";
 
-interface Song {
+export interface Song {
   title: string;
   img: string;
   audio: string;

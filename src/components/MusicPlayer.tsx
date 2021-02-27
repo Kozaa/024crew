@@ -5,6 +5,7 @@ import PauseButton from "./PauseButton";
 import gameplay from "../assets/images/gameplay.png";
 import chillwagon from "../assets/images/chillwagon.png";
 import tempo from "../assets/images/tempo.png";
+import { Song } from "../data";
 
 const MusicPlayerWrapper = styled.div<Props>`
   min-width: 120px;
@@ -54,7 +55,7 @@ interface Props {
   fixed?: boolean;
   showPlayer?: boolean;
   onClick?: any;
-  song?: any;
+  song?: Song;
   imgChanging?: boolean;
 }
 
@@ -67,7 +68,11 @@ const MusicPlayer = ({
 }: Props) => {
   return (
     <MusicPlayerWrapper fixed={fixed} showPlayer={showPlayer} onClick={onClick}>
-      <StyledImg src={song} imgChanging={imgChanging} />
+      <StyledImg
+        src={song?.img}
+        imgChanging={imgChanging}
+        title={song?.title}
+      />
       <ButtonWrapper>
         <PlayButton width="80%" height="80%" />
       </ButtonWrapper>

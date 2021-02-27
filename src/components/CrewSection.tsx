@@ -68,11 +68,11 @@ const crew = [
 ];
 
 const CrewSection = () => (
-  <CrewSectionWrapper>
+  <CrewSectionWrapper id="crew">
     <SectionTitle>CREW</SectionTitle>
     <CrewGrid>
-      {crew.map((member) => (
-        <CrewMember name={member.name} img={member.img} />
+      {crew.map((member, i) => (
+        <CrewMember name={member.name} img={member.img} key={i} />
       ))}
     </CrewGrid>
     <Gallery />
