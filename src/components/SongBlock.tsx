@@ -51,6 +51,10 @@ const SongTitle = styled.div`
   font-size: 1.5em;
   text-align: center;
 
+  :hover {
+    cursor: pointer;
+  }
+
   :hover + div {
     transform: scale(1.05);
     cursor: pointer;

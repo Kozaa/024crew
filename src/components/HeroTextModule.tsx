@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import PlayButton from "../components/PlayButton";
-import PauseButton from "../components/PauseButton";
+import { Song, heroSong, songData } from "../data";
 
 const HeroTextWrapper = styled.div`
   width: 60%;
@@ -18,18 +18,44 @@ const HeroTextWrapper = styled.div`
   text-align: center;
 `;
 
-const HeroTextModule = () => (
-  <HeroTextWrapper>
-    <h2>PIESEK</h2>
-    <span style={{ marginBottom: "12px" }}>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque eum sequi
-      tenetur unde quae, beatae, temporibus sed, suscipit excepturi eligendi
-      magnam explicabo blanditiis! Inventore suscipit aut ut recusandae itaque
-      totam. Est officia facere dicta quia libero dolor incidunt excepturi nihil
-      accusantium voluptas quae, quaerat porro.
-    </span>
-    <PlayButton />
-  </HeroTextWrapper>
-);
+interface Props {
+  song: Song;
+  handleSongChange: (song: Song) => void;
+  videoRef: React.MutableRefObject<HTMLVideoElement | null>;
+  isPlaying: boolean;
+}
+
+const HeroTextModule = ({
+  handleSongChange,
+  videoRef,
+  song,
+  isPlaying,
+}: Props) => {
+  const handleHeroSongChange = () => {
+    handleSongChange(heroSong);
+
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      videoRef.current.play();
+    }
+  };
+
+  return (
+    <HeroTextWrapper>
+      <h2>PIESEK</h2>
+      <span style={{ marginBottom: "12px" }}>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque eum
+        sequi tenetur unde quae, beatae, temporibus sed, suscipit excepturi
+        eligendi magnam explicabo blanditiis! Inventore suscipit aut ut
+        recusandae itaque totam. Est officia facere dicta quia libero dolor
+        incidunt excepturi nihil accusantium voluptas quae, quaerat porro.
+      </span>
+      {song.title !== heroSong.title || !isPlaying ? (
+        <PlayButton handleClick={handleHeroSongChange} />
+      ) : null}
+    </HeroTextWrapper>
+  );
+};
 
 export default HeroTextModule;

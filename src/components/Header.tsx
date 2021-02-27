@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
 import logo from "../assets/images/logo-black-white.png";
+import { Song } from "../data";
 import MusicPlayer from "./MusicPlayer";
 
 const HeaderWrapper = styled.nav`
@@ -49,24 +50,36 @@ const StyledNavItem = styled.div`
   flex-shrink: 0;
 `;
 
-const Header = ({ song }: any) => (
-  <HeaderWrapper>
-    <StyledNavItem>
-      <MusicPlayer song={song} />
-    </StyledNavItem>
-    <StyledNavItem>
-      <a href="#muzyka">muzyka</a>
-    </StyledNavItem>
-    <StyledNavItem>
-      <StyledImg src={logo} alt="024crew logo" />
-    </StyledNavItem>
-    <StyledNavItem>
-      <a href="#crew">crew</a>
-    </StyledNavItem>
-    <StyledNavItem>
-      <a href="#">kontakt</a>
-    </StyledNavItem>
-  </HeaderWrapper>
-);
+interface Props {
+  song: Song;
+  setPlaySong: Dispatch<SetStateAction<boolean>>;
+  playSong: boolean;
+}
+
+const Header = ({ song, setPlaySong, playSong }: Props) => {
+  return (
+    <HeaderWrapper>
+      <StyledNavItem>
+        <MusicPlayer
+          song={song}
+          setPlaySong={setPlaySong}
+          playSong={playSong}
+        />
+      </StyledNavItem>
+      <StyledNavItem>
+        <a href="#muzyka">muzyka</a>
+      </StyledNavItem>
+      <StyledNavItem>
+        <StyledImg src={logo} alt="024crew logo" />
+      </StyledNavItem>
+      <StyledNavItem>
+        <a href="#crew">crew</a>
+      </StyledNavItem>
+      <StyledNavItem>
+        <a href="#">kontakt</a>
+      </StyledNavItem>
+    </HeaderWrapper>
+  );
+};
 
 export default Header;

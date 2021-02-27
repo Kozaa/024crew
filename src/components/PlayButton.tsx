@@ -1,7 +1,12 @@
 import { useTheme } from "styled-components";
 import styled from "styled-components";
 
-const StyledSvg = styled.svg<Props>`
+interface SVGProps {
+  width?: string;
+  height?: string;
+}
+
+const StyledSvg = styled.svg<SVGProps>`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   flex-shrink: 0;
@@ -14,9 +19,14 @@ const StyledSvg = styled.svg<Props>`
 interface Props {
   width?: string;
   height?: string;
+  handleClick: (type: boolean) => void;
 }
 
-const PlayButton = ({ width = "60px", height = "60px" }: Props) => {
+const PlayButton = ({
+  width = "60px",
+  height = "60px",
+  handleClick,
+}: Props) => {
   const theme = useTheme();
 
   return (
@@ -26,6 +36,7 @@ const PlayButton = ({ width = "60px", height = "60px" }: Props) => {
       height={height}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      onClick={() => handleClick(true)}
     >
       <circle
         cx="37"

@@ -35,7 +35,6 @@ const MusicSection = ({ handleSongChange }: Props) => {
   const [showModal, setShowModal] = useState(false);
   const [animateModal, setAnimateModal] = useState(false);
   const [modalAlbum, setModalAlbum] = useState<Album | null>(null);
-  console.log("mount", showModal, animateModal);
 
   const handleMultiSongAlbumClick = (album: Album) => {
     setShowModal(true);

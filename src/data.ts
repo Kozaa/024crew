@@ -7,10 +7,13 @@ import tempo from "./assets/images/tempo.png";
 import trapiraci from "./assets/images/trapiraci.png";
 import wiecej from "./assets/images/wiecej.png";
 import chillrocket from "./assets/images/chillrocket.png";
-import kodeksMarkiAudio from "./assets/music/kodeksMarkiAudio.mp3";
 import hot16 from "./assets/images/hot16.png";
 import hamburgierek from "./assets/images/hamburgierek.png";
 import balet from "./assets/images/balet.png";
+import piesek from "./assets/images/piesek.png";
+import kodeksMarkiAudio from "./assets/music/kodeksMarkiAudio.mp3";
+import lunaAudio from "./assets/music/lunaAudio.mp3";
+import piesekAudio from "./assets/music/piesekAudio.mp3";
 
 export interface Song {
   title: string;
@@ -25,6 +28,12 @@ export type Album = {
 };
 
 type SongData = Album[];
+
+export const heroSong: Song = {
+  title: "olszakumpel - piesek (prod. BeRoX)",
+  img: piesek,
+  audio: piesekAudio,
+};
 
 // TO DO: swap placeholder audio files (kodeks marki everywere) to actual songs
 
@@ -53,7 +62,7 @@ export const songData: SongData = [
       {
         title: "olszakumpel - kodeks marki (prod. danny rxse)",
         img: kodeksMarki,
-        audio: kodeksMarki,
+        audio: kodeksMarkiAudio,
       },
     ],
   },
@@ -64,7 +73,7 @@ export const songData: SongData = [
       {
         title: "olszakumpel - krzyż (prod. skel)",
         img: krzyz,
-        audio: kodeksMarki,
+        audio: kodeksMarkiAudio,
       },
     ],
   },
@@ -75,7 +84,7 @@ export const songData: SongData = [
       {
         title: "olszakumpel - tempo feat. sapi tha king (prod. clearmind)",
         img: tempo,
-        audio: kodeksMarki,
+        audio: kodeksMarkiAudio,
       },
     ],
   },
@@ -86,7 +95,7 @@ export const songData: SongData = [
       {
         title: "olszakumpel - luna (prod. secretrank)",
         img: luna,
-        audio: kodeksMarki,
+        audio: lunaAudio,
       },
     ],
   },
@@ -98,7 +107,7 @@ export const songData: SongData = [
         title:
           "olszakumpel - trapiraci feat. paris platynov (prod. danny rxse)",
         img: trapiraci,
-        audio: kodeksMarki,
+        audio: kodeksMarkiAudio,
       },
     ],
   },
@@ -109,12 +118,12 @@ export const songData: SongData = [
       {
         title: "LVL 06. OVERCOOKED[🎶: @DANNY RXSE]",
         img: gameplay,
-        audio: kodeksMarki,
+        audio: kodeksMarkiAudio,
       },
       {
         title: "LVL 02. METIN2 [🎶: @DANNY RXSE]",
         img: gameplay,
-        audio: kodeksMarki,
+        audio: kodeksMarkiAudio,
       },
     ],
   },

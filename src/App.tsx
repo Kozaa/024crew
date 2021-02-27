@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   createGlobalStyle,
   ThemeProvider,
@@ -12,7 +12,7 @@ import EventSection from "./components/EventSection";
 import MusicSection from "./components/MusicSection";
 import CrewSection from "./components/CrewSection";
 import Footer from "./components/Footer";
-import { Song, songData } from "./data";
+import { Song, songData, heroSong } from "./data";
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -60,17 +60,29 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   const [theme, setTheme] = useState<DefaultTheme>(main);
   const [showPlayer, setShowPlayer] = useState(false);
-  const [song, setSong] = useState<Song>(songData[0].songs[0]);
+  const [song, setSong] = useState<Song>(heroSong);
   const [imgChanging, setImgChanging] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       const y = window.scrollY;
       const headerEnd = window.innerHeight / 10;
 
+      audioRef.current?.addEventListener("ended", (e) => {
+        setIsPlaying(false);
+      });
+
       y > headerEnd ? setShowPlayer(true) : setShowPlayer(false);
     });
   }, []);
+
+  useEffect(() => {
+    audioRef.current!.volume = 0.4;
+    isPlaying ? audioRef.current!.play() : audioRef.current!.pause();
+  }, [isPlaying]);
 
   const handleSongChange = (song: Song) => {
     if (song.title === "olszakumpel - luna (prod. secretrank)") {
@@ -80,10 +92,13 @@ const App = () => {
     }
 
     setImgChanging(true);
+    setIsPlaying(false);
 
     setTimeout(() => {
       setSong(song);
+      setIsPlaying(true);
       setImgChanging(false);
+      console.log(song);
     }, 500);
   };
 
@@ -91,16 +106,27 @@ const App = () => {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header song={song} />
+        <audio
+          src={song ? song.audio : undefined}
+          ref={audioRef}
+          crossOrigin="anonymous"
+          preload="auto"
+        ></audio>
+        <Header song={song} playSong={isPlaying} setPlaySong={setIsPlaying} />
 
         <MusicPlayer
           fixed={true}
           showPlayer={showPlayer}
-          onClick={handleSongChange}
           song={song}
           imgChanging={imgChanging}
+          playSong={isPlaying}
+          setPlaySong={setIsPlaying}
         />
-        <HeroPlayer />
+        <HeroPlayer
+          handleSongChange={handleSongChange}
+          song={song}
+          isPlaying={isPlaying}
+        />
         <EventSection />
         <MusicSection handleSongChange={handleSongChange} />
         <CrewSection />
