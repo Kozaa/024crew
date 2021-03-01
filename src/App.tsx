@@ -12,7 +12,7 @@ import EventSection from "./components/EventSection";
 import MusicSection from "./components/MusicSection";
 import CrewSection from "./components/CrewSection";
 import Footer from "./components/Footer";
-import { Song, songData, heroSong } from "./data";
+import { Song, heroSong } from "./data";
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -26,7 +26,6 @@ const GlobalStyle = createGlobalStyle`
   circle, path, line {
     transition: stroke 1s ease-in, fill 1s ease-in;
   }
-
 
 
   a, button, input {
@@ -98,7 +97,6 @@ const App = () => {
       setSong(song);
       setIsPlaying(true);
       setImgChanging(false);
-      console.log(song);
     }, 500);
   };
 
@@ -112,7 +110,12 @@ const App = () => {
           crossOrigin="anonymous"
           preload="auto"
         ></audio>
-        <Header song={song} playSong={isPlaying} setPlaySong={setIsPlaying} />
+        <Header
+          song={song}
+          playSong={isPlaying}
+          setPlaySong={setIsPlaying}
+          imgChanging={imgChanging}
+        />
 
         <MusicPlayer
           fixed={true}

@@ -7,7 +7,7 @@ export const main: DefaultTheme = {
   },
   colors: {
     main: "#000000",
-    secondary: "#ED0000",
+    secondary: "#D71F1F",
     bg: "#1A1A1A",
   },
 };

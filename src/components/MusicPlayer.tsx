@@ -53,13 +53,17 @@ const StyledImg = styled.img<StyledImgProps>`
   height: 46px;
   opacity: ${({ imgChanging }) => (imgChanging ? 0 : 1)};
   transition: opacity 0.5s ease-in;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 interface Props {
   fixed?: boolean;
   showPlayer?: boolean;
-  song?: Song;
-  imgChanging?: boolean;
+  song: Song;
+  imgChanging: boolean;
   setPlaySong: Dispatch<SetStateAction<boolean>>;
   playSong: boolean;
 }
@@ -72,12 +76,17 @@ const MusicPlayer = ({
   setPlaySong,
   playSong,
 }: Props) => {
+  const handleImgClick = () => {
+    window.open(song?.youtube, "_blank");
+  };
+
   return (
     <MusicPlayerWrapper fixed={fixed} showPlayer={showPlayer}>
       <StyledImg
         src={song?.img}
         imgChanging={imgChanging}
         title={song?.title}
+        onClick={handleImgClick}
       />
       <ButtonWrapper>
         {playSong ? (

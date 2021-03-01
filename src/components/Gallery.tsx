@@ -11,11 +11,22 @@ const GalleryWrapper = styled.div`
   display: flex;
   align-items: space-around;
   justify-content: space-around;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 `;
 
 const StyledImg = styled.img`
   height: 25vw;
   border: ${({ theme }) => "2px solid " + theme.colors.secondary};
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+    width: 80%;
+  }
 `;
 
 const Gallery = () => (

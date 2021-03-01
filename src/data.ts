@@ -19,6 +19,7 @@ export interface Song {
   title: string;
   img: string;
   audio: string;
+  youtube: string;
 }
 
 export type Album = {
@@ -33,6 +34,8 @@ export const heroSong: Song = {
   title: "olszakumpel - piesek (prod. BeRoX)",
   img: piesek,
   audio: piesekAudio,
+  youtube:
+    "https://www.youtube.com/watch?v=j2TOXu9c6Ag&ab_channel=olszakumpel-chillwagon",
 };
 
 // TO DO: swap placeholder audio files (kodeks marki everywere) to actual songs
@@ -47,11 +50,15 @@ export const songData: SongData = [
           "olszakumpel - chillrocket [prod. chris rich] (chillwagon challenge)",
         img: chillrocket,
         audio: kodeksMarkiAudio,
+        youtube:
+          "https://www.youtube.com/watch?v=j2TOXu9c6Ag&ab_channel=olszakumpel-chillwagon",
       },
       {
         title: "olszakumpel #Hot16Challenge2",
         img: hot16,
         audio: kodeksMarkiAudio,
+        youtube:
+          "https://www.youtube.com/watch?v=j2TOXu9c6Ag&ab_channel=olszakumpel-chillwagon",
       },
     ],
   },
@@ -63,6 +70,8 @@ export const songData: SongData = [
         title: "olszakumpel - kodeks marki (prod. danny rxse)",
         img: kodeksMarki,
         audio: kodeksMarkiAudio,
+        youtube:
+          "https://www.youtube.com/watch?v=j2TOXu9c6Ag&ab_channel=olszakumpel-chillwagon",
       },
     ],
   },
@@ -74,6 +83,8 @@ export const songData: SongData = [
         title: "olszakumpel - krzyż (prod. skel)",
         img: krzyz,
         audio: kodeksMarkiAudio,
+        youtube:
+          "https://www.youtube.com/watch?v=j2TOXu9c6Ag&ab_channel=olszakumpel-chillwagon",
       },
     ],
   },
@@ -85,6 +96,8 @@ export const songData: SongData = [
         title: "olszakumpel - tempo feat. sapi tha king (prod. clearmind)",
         img: tempo,
         audio: kodeksMarkiAudio,
+        youtube:
+          "https://www.youtube.com/watch?v=j2TOXu9c6Ag&ab_channel=olszakumpel-chillwagon",
       },
     ],
   },
@@ -96,6 +109,8 @@ export const songData: SongData = [
         title: "olszakumpel - luna (prod. secretrank)",
         img: luna,
         audio: lunaAudio,
+        youtube:
+          "https://www.youtube.com/watch?v=j2TOXu9c6Ag&ab_channel=olszakumpel-chillwagon",
       },
     ],
   },
@@ -108,6 +123,8 @@ export const songData: SongData = [
           "olszakumpel - trapiraci feat. paris platynov (prod. danny rxse)",
         img: trapiraci,
         audio: kodeksMarkiAudio,
+        youtube:
+          "https://www.youtube.com/watch?v=j2TOXu9c6Ag&ab_channel=olszakumpel-chillwagon",
       },
     ],
   },
@@ -119,11 +136,15 @@ export const songData: SongData = [
         title: "LVL 06. OVERCOOKED[🎶: @DANNY RXSE]",
         img: gameplay,
         audio: kodeksMarkiAudio,
+        youtube:
+          "https://www.youtube.com/watch?v=j2TOXu9c6Ag&ab_channel=olszakumpel-chillwagon",
       },
       {
         title: "LVL 02. METIN2 [🎶: @DANNY RXSE]",
         img: gameplay,
         audio: kodeksMarkiAudio,
+        youtube:
+          "https://www.youtube.com/watch?v=j2TOXu9c6Ag&ab_channel=olszakumpel-chillwagon",
       },
     ],
   },
@@ -135,11 +156,15 @@ export const songData: SongData = [
         title: "OLSZAKUMPEL - HAMBURGIEREK",
         img: hamburgierek,
         audio: kodeksMarkiAudio,
+        youtube:
+          "https://www.youtube.com/watch?v=j2TOXu9c6Ag&ab_channel=olszakumpel-chillwagon",
       },
       {
         title: "OLSZAKUMPEL - NIECH ŻYJE BALLET [🎶: @DANNY RXSE]",
         img: balet,
         audio: kodeksMarkiAudio,
+        youtube:
+          "https://www.youtube.com/watch?v=j2TOXu9c6Ag&ab_channel=olszakumpel-chillwagon",
       },
     ],
   },

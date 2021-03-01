@@ -35,6 +35,7 @@ const HeaderWrapper = styled.nav`
 
 const StyledImg = styled.img`
   height: 80%;
+  z-index: 1;
 `;
 
 const StyledNavItem = styled.div`
@@ -54,16 +55,20 @@ interface Props {
   song: Song;
   setPlaySong: Dispatch<SetStateAction<boolean>>;
   playSong: boolean;
+  imgChanging: boolean;
 }
 
-const Header = ({ song, setPlaySong, playSong }: Props) => {
-  return (
+const width = window.innerWidth;
+
+const Header = ({ song, setPlaySong, playSong, imgChanging }: Props) => {
+  return width > 768 ? (
     <HeaderWrapper>
       <StyledNavItem>
         <MusicPlayer
           song={song}
           setPlaySong={setPlaySong}
           playSong={playSong}
+          imgChanging={imgChanging}
         />
       </StyledNavItem>
       <StyledNavItem>
@@ -78,6 +83,10 @@ const Header = ({ song, setPlaySong, playSong }: Props) => {
       <StyledNavItem>
         <a href="#">kontakt</a>
       </StyledNavItem>
+    </HeaderWrapper>
+  ) : (
+    <HeaderWrapper>
+      <StyledImg src={logo} alt="024crew logo" />
     </HeaderWrapper>
   );
 };

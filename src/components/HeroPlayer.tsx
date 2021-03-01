@@ -6,8 +6,15 @@ import HeroTextModule from "./HeroTextModule";
 
 const HeroPlayerWrapper = styled.main`
   width: 100%;
+  min-height: 85vh;
 
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: ${({ theme }) => theme.colors.main};
 
   ::after {
     content: "";

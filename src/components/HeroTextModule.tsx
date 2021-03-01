@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import PlayButton from "../components/PlayButton";
-import { Song, heroSong, songData } from "../data";
+import { Song, heroSong } from "../data";
 
 const HeroTextWrapper = styled.div`
   width: 60%;
@@ -16,6 +16,12 @@ const HeroTextWrapper = styled.div`
   align-items: center;
 
   text-align: center;
+
+  @media screen and (max-width: 768px) {
+    width: 90vw;
+    position: static;
+    transform: none;
+  }
 `;
 
 interface Props {
