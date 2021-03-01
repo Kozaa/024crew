@@ -14,6 +14,7 @@ const FooterWrapper = styled.footer`
   @media screen and (max-width: 768px) {
     height: auto;
     padding: 30px 15px;
+    padding-bottom: calc(10vh + 50px);
     flex-direction: column;
     align-items: center;
     gap: 20px;

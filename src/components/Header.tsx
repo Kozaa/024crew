@@ -18,7 +18,7 @@ const HeaderWrapper = styled.nav`
   align-items: center;
   justify-content: space-around;
 
-  &::after {
+  :after {
     content: "";
     position: absolute;
     width: 0;
@@ -30,6 +30,14 @@ const HeaderWrapper = styled.nav`
     border-right: 200px solid transparent;
 
     border-top: ${({ theme }) => "200px solid " + theme.colors.secondary};
+  }
+
+  @media screen and (max-width: 768px) {
+    height: 7vh;
+
+    :after {
+      border-width: 150px;
+    }
   }
 `;
 

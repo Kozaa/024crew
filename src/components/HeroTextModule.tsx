@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import PlayButton from "../components/PlayButton";
+import PlayButton from "./SVG/PlayButton";
 import { Song, heroSong } from "../data";
 
 const HeroTextWrapper = styled.div`
@@ -18,8 +18,9 @@ const HeroTextWrapper = styled.div`
   text-align: center;
 
   @media screen and (max-width: 768px) {
-    width: 90vw;
     position: static;
+    width: 90vw;
+    margin-top: 20px;
     transform: none;
   }
 `;

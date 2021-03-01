@@ -10,6 +10,10 @@ const StyledSectionTitle = styled.header`
   margin-bottom: 30px;
   border-bottom: ${({ theme }) => "2px solid " + theme.colors.secondary};
   text-align: center;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1em;
+  }
 `;
 
 interface Props {

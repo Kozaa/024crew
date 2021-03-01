@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
-import PlayButton from "./PlayButton";
-import PauseButton from "./PauseButton";
+import PlayButton from "./SVG/PlayButton";
+import PauseButton from "./SVG/PauseButton";
 import { Song } from "../data";
 
 interface WrapperProps {
@@ -33,6 +33,13 @@ const MusicPlayerWrapper = styled.div<WrapperProps>`
 
   transition: opacity 0.5s ease-in, min-width 1s ease-in-out,
     border-color 0.5s ease-in;
+
+  @media screen and (max-width: 768px) {
+    top: auto;
+    bottom: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 const ButtonWrapper = styled.div`

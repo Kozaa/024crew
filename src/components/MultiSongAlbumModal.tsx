@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import CloseButton from "./CloseButton";
+import CloseButton from "./SVG/CloseButton";
 import { Album, Song } from "../data";
 
 interface ModalProps {

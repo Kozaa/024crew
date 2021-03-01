@@ -13,6 +13,7 @@ import MusicSection from "./components/MusicSection";
 import CrewSection from "./components/CrewSection";
 import Footer from "./components/Footer";
 import { Song, heroSong } from "./data";
+import MobileMenu from "./components/MobileMenu";
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -46,6 +47,10 @@ const GlobalStyle = createGlobalStyle`
     color: white;
     font-family: ${({ theme }) => theme.fonts.main};
     font-size: 15px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 13px;
+    }
   }
 
   #root {
@@ -55,6 +60,8 @@ const GlobalStyle = createGlobalStyle`
 
   }
 `;
+
+const mobile = window.innerWidth < 768;
 
 const App = () => {
   const [theme, setTheme] = useState<DefaultTheme>(main);
@@ -134,6 +141,7 @@ const App = () => {
         <MusicSection handleSongChange={handleSongChange} />
         <CrewSection />
         <Footer />
+        {mobile ? <MobileMenu /> : null}
       </ThemeProvider>
     </>
   );
