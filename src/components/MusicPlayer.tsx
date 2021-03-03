@@ -32,7 +32,7 @@ const MusicPlayerWrapper = styled.div<WrapperProps>`
   align-content: center;
 
   transition: opacity 0.5s ease-in, min-width 1s ease-in-out,
-    border-color 0.5s ease-in;
+    border-color 1s ease-in;
 
   @media screen and (max-width: 768px) {
     top: auto;

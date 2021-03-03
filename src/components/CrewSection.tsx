@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import SectionTitle from "./SectionTitle";
-import crewImg from "../assets/images/crew-member-placeholder.png";
 import crewBG from "../assets/images/crew-bg.png";
 import CrewMember from "./CrewMember";
 import Gallery from "./Gallery";
+import { crew } from "../data";
 
 const CrewSectionWrapper = styled.section`
   width: 100%;
@@ -28,55 +28,12 @@ const CrewGrid = styled.div`
   }
 `;
 
-const crew = [
-  {
-    name: "xyzkumpel",
-    img: crewImg,
-  },
-  {
-    name: "xyzkumpel",
-    img: crewImg,
-  },
-  {
-    name: "xyzkumpel",
-    img: crewImg,
-  },
-  {
-    name: "xyzkumpel",
-    img: crewImg,
-  },
-  {
-    name: "xyzkumpel",
-    img: crewImg,
-  },
-  {
-    name: "xyzkumpel",
-    img: crewImg,
-  },
-  {
-    name: "xyzkumpel",
-    img: crewImg,
-  },
-  {
-    name: "xyzkumpel",
-    img: crewImg,
-  },
-  {
-    name: "xyzkumpel",
-    img: crewImg,
-  },
-  {
-    name: "xyzkumpel",
-    img: crewImg,
-  },
-];
-
 const CrewSection = () => (
   <CrewSectionWrapper id="crew">
     <SectionTitle>CREW</SectionTitle>
     <CrewGrid>
       {crew.map((member, i) => (
-        <CrewMember name={member.name} img={member.img} key={i} />
+        <CrewMember {...member} key={i} />
       ))}
     </CrewGrid>
     <Gallery />

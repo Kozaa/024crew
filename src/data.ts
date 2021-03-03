@@ -14,6 +14,7 @@ import piesek from "./assets/images/piesek.png";
 import kodeksMarkiAudio from "./assets/music/kodeksMarkiAudio.mp3";
 import lunaAudio from "./assets/music/lunaAudio.mp3";
 import piesekAudio from "./assets/music/piesekAudio.mp3";
+import crewImg from "./assets/images/crew-member-placeholder.png";
 
 export interface Song {
   title: string;
@@ -167,5 +168,64 @@ export const songData: SongData = [
           "https://www.youtube.com/watch?v=j2TOXu9c6Ag&ab_channel=olszakumpel-chillwagon",
       },
     ],
+  },
+];
+
+export interface CrewMemberType {
+  name: string;
+  img: string;
+  linkInstagram: string;
+}
+
+export const crew: CrewMemberType[] = [
+  {
+    name: "xyzkumpel",
+    img: crewImg,
+    linkInstagram: "https://www.instagram.com/olszakumpel/?hl=pl",
+  },
+  {
+    name: "xyzkumpel",
+    img: crewImg,
+    linkInstagram: "https://www.instagram.com/olszakumpel/?hl=pl",
+  },
+  {
+    name: "xyzkumpel",
+    img: crewImg,
+    linkInstagram: "https://www.instagram.com/olszakumpel/?hl=pl",
+  },
+  {
+    name: "xyzkumpel",
+    img: crewImg,
+    linkInstagram: "https://www.instagram.com/olszakumpel/?hl=pl",
+  },
+  {
+    name: "xyzkumpel",
+    img: crewImg,
+    linkInstagram: "https://www.instagram.com/olszakumpel/?hl=pl",
+  },
+  {
+    name: "xyzkumpel",
+    img: crewImg,
+    linkInstagram: "https://www.instagram.com/olszakumpel/?hl=pl",
+  },
+  {
+    name: "xyzkumpel",
+    img: crewImg,
+    linkInstagram: "https://www.instagram.com/olszakumpel/?hl=pl",
+  },
+  {
+    name: "xyzkumpel",
+    img: crewImg,
+    linkInstagram: "https://www.instagram.com/olszakumpel/?hl=pl",
+  },
+  {
+    name: "xyzkumpel",
+    img: crewImg,
+    linkInstagram: "https://www.instagram.com/olszakumpel/?hl=pl",
+  },
+  {
+    name: "xyzkumpel",
+    img: crewImg,
+    linkInstagram: "https://www.instagram.com/olszakumpel/?hl=pl",
   },
 ];
