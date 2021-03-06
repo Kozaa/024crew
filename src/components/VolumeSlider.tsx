@@ -50,6 +50,7 @@ const StyledInput = styled.input.attrs({
     width: 12px;
     border-radius: 50%;
     background: ${({ theme }) => theme.colors.secondary};
+    transition: background 1s ease-in;
     cursor: pointer;
     margin-top: -3px;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
@@ -62,6 +63,7 @@ const StyledInput = styled.input.attrs({
     width: 12px;
     border-radius: 50%;
     background: ${({ theme }) => theme.colors.secondary};
+    transition: background 1s ease-in;
     cursor: pointer;
   }
 
@@ -72,6 +74,7 @@ const StyledInput = styled.input.attrs({
     width: 12px;
     border-radius: 50%;
     background: ${({ theme }) => theme.colors.secondary};
+    transition: background 1s ease-in;
     cursor: pointer;
   }
 
@@ -81,12 +84,14 @@ const StyledInput = styled.input.attrs({
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     background: ${({ theme }) => theme.colors.secondary};
+    transition: background 1s ease-in;
     border-radius: 10px;
     border: 0.2px solid #010101;
   }
 
   :focus::-webkit-slider-runnable-track {
     background: ${({ theme }) => theme.colors.secondary};
+    transition: background 1s ease-in;
   }
 
   ::-moz-range-track {
@@ -95,6 +100,7 @@ const StyledInput = styled.input.attrs({
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     background: ${({ theme }) => theme.colors.secondary};
+    transition: background 1s ease-in;
     border-radius: 10px;
     border: 0.2px solid #010101;
   }
@@ -115,9 +121,11 @@ const StyledInput = styled.input.attrs({
   }
   :focus::-ms-fill-lower {
     background: ${({ theme }) => theme.colors.secondary};
+    transition: background 0.5s ease-in;
   }
   ::-ms-fill-upper {
     background: ${({ theme }) => theme.colors.secondary};
+    transition: background 0.5s ease-in;
     border: 0.2px solid #010101;
     border-radius: 10px;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;

@@ -94,8 +94,8 @@ const App = () => {
     audioRef.current!.volume = volume / 100;
   }, [volume]);
 
-  const handleSongChange = (song: Song) => {
-    if (song.title === "olszakumpel - luna (prod. secretrank)") {
+  const handleSongChange = (newSong: Song) => {
+    if (newSong.title === "olszakumpel - luna (prod. secretrank)") {
       setTheme(luna);
     } else {
       setTheme(main);
@@ -105,7 +105,8 @@ const App = () => {
     setIsPlaying(false);
 
     setTimeout(() => {
-      setSong(song);
+      setSong(newSong);
+      audioRef.current!.currentTime = 0;
       setIsPlaying(true);
       setImgChanging(false);
     }, 500);

@@ -39,10 +39,6 @@ const Title = styled.div`
   font-size: 1.2em;
   opacity: 0.8;
   margin-bottom: 10px;
-
-  @media screen and (max-width: 768px) {
-    //   text-align: left;
-  }
 `;
 
 const StyledImg = styled.img`
@@ -79,6 +75,11 @@ const Footer = () => (
       <Title>Współpraca</Title>
       <Link style={{ gridColumn: "1 / span 2" }}>email@gmail.com</Link>
       <Link style={{ gridColumn: "1 / span 2" }}>email2@gmail.com</Link>
+    </LinkGrid>
+    <LinkGrid>
+      <Title>Sprawdź</Title>
+      <Link style={{ gridColumn: "1 / span 2" }}>chillwagon.pl</Link>
+      <Link style={{ gridColumn: "1 / span 2" }}>024kumple.pl</Link>
     </LinkGrid>
     <StyledImg src={logoColor} alt="024crew logo" />
   </FooterWrapper>

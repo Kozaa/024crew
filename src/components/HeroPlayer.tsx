@@ -1,7 +1,8 @@
 import { useRef } from "react";
 import styled from "styled-components";
 import bg1080 from "../assets/videos/bg1080.mp4";
-import { Song } from "../data";
+import bg720 from "../assets/videos/bg720.mp4";
+import { heroSong, Song } from "../data";
 import HeroTextModule from "./HeroTextModule";
 
 const HeroPlayerWrapper = styled.main`
@@ -12,7 +13,6 @@ const HeroPlayerWrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-around; */
 
   background-color: ${({ theme }) => theme.colors.main};
 
@@ -40,7 +40,14 @@ const HeroPlayer = ({ handleSongChange, song, isPlaying }: Props) => {
 
   return (
     <HeroPlayerWrapper>
-      <video src={bg1080} width="100%" autoPlay muted loop ref={videoRef} />
+      <video
+        src={window.innerWidth > 768 ? bg1080 : bg720}
+        width="100%"
+        autoPlay
+        muted
+        loop
+        ref={videoRef}
+      />
       <HeroTextModule
         handleSongChange={handleSongChange}
         videoRef={videoRef}

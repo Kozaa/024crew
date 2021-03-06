@@ -2,7 +2,12 @@ import styled from "styled-components";
 import PlayButton from "./SVG/PlayButton";
 import { Song, heroSong } from "../data";
 
-const HeroTextWrapper = styled.div`
+interface WrapperProps {
+  song: Song;
+  isPlaying: boolean;
+}
+
+const HeroTextWrapper = styled.div<WrapperProps>`
   width: 60%;
   height: 50%;
   position: absolute;
@@ -10,6 +15,8 @@ const HeroTextWrapper = styled.div`
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 2;
+  opacity: ${({ song, isPlaying }) => (isPlaying && song === heroSong ? 0 : 1)};
+  transition: opacity 0.5s ease-in;
 
   display: flex;
   flex-direction: column;
@@ -44,12 +51,14 @@ const HeroTextModule = ({
     if (videoRef.current) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
-      videoRef.current.play();
+      setTimeout(() => {
+        videoRef.current!.play();
+      }, 500);
     }
   };
 
   return (
-    <HeroTextWrapper>
+    <HeroTextWrapper song={song} isPlaying={isPlaying}>
       <h2>PIESEK</h2>
       <span style={{ marginBottom: "12px" }}>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque eum
@@ -58,9 +67,8 @@ const HeroTextModule = ({
         recusandae itaque totam. Est officia facere dicta quia libero dolor
         incidunt excepturi nihil accusantium voluptas quae, quaerat porro.
       </span>
-      {song.title !== heroSong.title || !isPlaying ? (
-        <PlayButton handleClick={handleHeroSongChange} />
-      ) : null}
+
+      <PlayButton handleClick={handleHeroSongChange} />
     </HeroTextWrapper>
   );
 };
