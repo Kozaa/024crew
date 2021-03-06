@@ -64,11 +64,20 @@ interface Props {
   setPlaySong: Dispatch<SetStateAction<boolean>>;
   playSong: boolean;
   imgChanging: boolean;
+  volume: number;
+  handleVolumeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const width = window.innerWidth;
 
-const Header = ({ song, setPlaySong, playSong, imgChanging }: Props) => {
+const Header = ({
+  song,
+  setPlaySong,
+  playSong,
+  imgChanging,
+  volume,
+  handleVolumeChange,
+}: Props) => {
   return width > 768 ? (
     <HeaderWrapper>
       <StyledNavItem>
@@ -77,6 +86,9 @@ const Header = ({ song, setPlaySong, playSong, imgChanging }: Props) => {
           setPlaySong={setPlaySong}
           playSong={playSong}
           imgChanging={imgChanging}
+          volume={volume}
+          handleVolumeChange={handleVolumeChange}
+          showVolume={false}
         />
       </StyledNavItem>
       <StyledNavItem>

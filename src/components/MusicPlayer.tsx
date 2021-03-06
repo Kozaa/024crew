@@ -3,26 +3,37 @@ import styled from "styled-components";
 import PlayButton from "./SVG/PlayButton";
 import PauseButton from "./SVG/PauseButton";
 import { Song } from "../data";
+import VolumeSlider from "./VolumeSlider";
 
-interface WrapperProps {
+interface PositionWrapperProps {
   fixed?: boolean;
   showPlayer?: boolean;
-  onClick?: any;
-  song?: Song;
 }
 
-const MusicPlayerWrapper = styled.div<WrapperProps>`
-  min-width: 120px;
-  height: 50px;
-  background-color: ${({ theme }) => theme.colors.main};
-  border: ${({ theme }) => "2px solid " + theme.colors.secondary};
-
+const PositionWrapper = styled.div<PositionWrapperProps>`
   position: ${({ fixed }) => (fixed ? "fixed" : "static")};
   opacity: ${({ showPlayer }) => (showPlayer ? 1 : 0)};
   top: 40px;
   left: 40px;
   z-index: 2;
 
+  transition: opacity 0.5s ease-in;
+
+  @media screen and (max-width: 768px) {
+    top: auto;
+    bottom: calc(10vh + 16px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+`;
+
+const MusicPlayerWrapper = styled.div`
+  min-width: 120px;
+  height: 50px;
+  background-color: ${({ theme }) => theme.colors.main};
+  border: ${({ theme }) => "2px solid " + theme.colors.secondary};
+
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 50px;
   align-items: center;
@@ -33,13 +44,6 @@ const MusicPlayerWrapper = styled.div<WrapperProps>`
 
   transition: opacity 0.5s ease-in, min-width 1s ease-in-out,
     border-color 1s ease-in;
-
-  @media screen and (max-width: 768px) {
-    top: auto;
-    bottom: 10vh;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -73,6 +77,9 @@ interface Props {
   imgChanging: boolean;
   setPlaySong: Dispatch<SetStateAction<boolean>>;
   playSong: boolean;
+  volume: number;
+  handleVolumeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  showVolume: boolean;
 }
 
 const MusicPlayer = ({
@@ -82,27 +89,38 @@ const MusicPlayer = ({
   imgChanging = false,
   setPlaySong,
   playSong,
+  volume,
+  handleVolumeChange,
+  showVolume,
 }: Props) => {
   const handleImgClick = () => {
     window.open(song?.youtube, "_blank");
   };
 
   return (
-    <MusicPlayerWrapper fixed={fixed} showPlayer={showPlayer}>
-      <StyledImg
-        src={song?.img}
-        imgChanging={imgChanging}
-        title={song?.title}
-        onClick={handleImgClick}
-      />
-      <ButtonWrapper>
-        {playSong ? (
-          <PauseButton width="80%" height="80%" handleClick={setPlaySong} />
-        ) : (
-          <PlayButton width="80%" height="80%" handleClick={setPlaySong} />
-        )}
-      </ButtonWrapper>
-    </MusicPlayerWrapper>
+    <PositionWrapper fixed={fixed} showPlayer={showPlayer}>
+      <MusicPlayerWrapper>
+        <StyledImg
+          src={song?.img}
+          imgChanging={imgChanging}
+          title={song?.title}
+          onClick={handleImgClick}
+        />
+        <ButtonWrapper>
+          {playSong ? (
+            <PauseButton width="80%" height="80%" handleClick={setPlaySong} />
+          ) : (
+            <PlayButton width="80%" height="80%" handleClick={setPlaySong} />
+          )}
+        </ButtonWrapper>
+        {showVolume ? (
+          <VolumeSlider
+            volume={volume}
+            handleVolumeChange={handleVolumeChange}
+          />
+        ) : null}
+      </MusicPlayerWrapper>
+    </PositionWrapper>
   );
 };
 

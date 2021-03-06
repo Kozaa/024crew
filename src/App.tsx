@@ -69,6 +69,7 @@ const App = () => {
   const [song, setSong] = useState<Song>(heroSong);
   const [imgChanging, setImgChanging] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(50);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -86,9 +87,12 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    audioRef.current!.volume = 0.4;
     isPlaying ? audioRef.current!.play() : audioRef.current!.pause();
   }, [isPlaying]);
+
+  useEffect(() => {
+    audioRef.current!.volume = volume / 100;
+  }, [volume]);
 
   const handleSongChange = (song: Song) => {
     if (song.title === "olszakumpel - luna (prod. secretrank)") {
@@ -107,6 +111,11 @@ const App = () => {
     }, 500);
   };
 
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVolume = parseInt(e.target.value);
+    setVolume(newVolume);
+  };
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -122,6 +131,8 @@ const App = () => {
           playSong={isPlaying}
           setPlaySong={setIsPlaying}
           imgChanging={imgChanging}
+          volume={volume}
+          handleVolumeChange={handleVolumeChange}
         />
 
         <MusicPlayer
@@ -131,6 +142,9 @@ const App = () => {
           imgChanging={imgChanging}
           playSong={isPlaying}
           setPlaySong={setIsPlaying}
+          volume={volume}
+          handleVolumeChange={handleVolumeChange}
+          showVolume={true}
         />
         <HeroPlayer
           handleSongChange={handleSongChange}
