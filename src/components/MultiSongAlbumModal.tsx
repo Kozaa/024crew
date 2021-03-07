@@ -21,6 +21,11 @@ const MultiSongAlbumModalWrapper = styled.div<ModalProps>`
   background-color: ${({ theme }) => theme.colors.main};
 
   transition: opacity 0.5s ease-in, background-color 1s ease-in;
+
+  @media screen and (max-width: 768px) {
+    grid-column: 1/3;
+    grid-row: ${({ side }) => (side ? "1/4" : "4/7")};
+  }
 `;
 
 const StyledCloseButton = styled(CloseButton)`
@@ -42,7 +47,8 @@ const AlbumTitle = styled.div`
 const SongLink = styled.div`
   font-family: ${({ theme }) => theme.fonts.main};
   font-size: 1em;
-  margin-bottom: 5px;
+  line-height: 1.5em;
+  margin-bottom: 10px;
 
   :hover {
     cursor: pointer;

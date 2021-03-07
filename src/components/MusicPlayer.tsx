@@ -15,13 +15,14 @@ const PositionWrapper = styled.div<PositionWrapperProps>`
   opacity: ${({ showPlayer }) => (showPlayer ? 1 : 0)};
   top: 40px;
   left: 40px;
-  z-index: 2;
+  z-index: 5;
 
   transition: opacity 0.5s ease-in;
 
   @media screen and (max-width: 768px) {
     top: auto;
-    bottom: calc(10vh + 16px);
+
+    bottom: calc(10vmax + 20px);
     left: 50%;
     transform: translateX(-50%);
   }
@@ -75,8 +76,8 @@ interface Props {
   showPlayer?: boolean;
   song: Song;
   imgChanging: boolean;
-  setPlaySong: Dispatch<SetStateAction<boolean>>;
-  playSong: boolean;
+  setIsPlaying: Dispatch<SetStateAction<boolean>>;
+  isPlaying: boolean;
   volume: number;
   handleVolumeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   showVolume: boolean;
@@ -87,8 +88,8 @@ const MusicPlayer = ({
   showPlayer = true,
   song,
   imgChanging = false,
-  setPlaySong,
-  playSong,
+  setIsPlaying,
+  isPlaying,
   volume,
   handleVolumeChange,
   showVolume,
@@ -107,10 +108,10 @@ const MusicPlayer = ({
           onClick={handleImgClick}
         />
         <ButtonWrapper>
-          {playSong ? (
-            <PauseButton width="80%" height="80%" handleClick={setPlaySong} />
+          {isPlaying ? (
+            <PauseButton width="80%" height="80%" handleClick={setIsPlaying} />
           ) : (
-            <PlayButton width="80%" height="80%" handleClick={setPlaySong} />
+            <PlayButton width="80%" height="80%" handleClick={setIsPlaying} />
           )}
         </ButtonWrapper>
         {showVolume ? (

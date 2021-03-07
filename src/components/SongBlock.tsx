@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 interface SongBlockProps {
-  rows: string;
-  columns: string;
+  gridPosition: string;
 }
 
 const SongBlockWrapper = styled.div<SongBlockProps>`
   width: 100%;
   height: 100%;
-  grid-row: ${({ rows }) => rows};
-  grid-column: ${({ columns }) => columns};
+
+  grid-area: ${({ gridPosition }) => gridPosition};
   position: relative;
 
   display: flex;
@@ -63,17 +62,16 @@ const SongTitle = styled.div`
 
 interface Props {
   bg: string;
-  rows: string;
-  columns: string;
   title: string;
+  gridPosition: string;
   handleClick: () => void;
 }
 
-const SongBlock = ({ bg, columns, rows, title, handleClick }: Props) => (
-  <SongBlockWrapper rows={rows} columns={columns} onClick={handleClick}>
+const SongBlock = ({ bg, title, gridPosition, handleClick }: Props) => (
+  <SongBlockWrapper gridPosition={gridPosition} onClick={handleClick}>
     <StyledSongBlock bg={bg} />
 
-    <SongTitle>{title}</SongTitle>
+    <SongTitle>{title.toUpperCase()}</SongTitle>
   </SongBlockWrapper>
 );
 

@@ -78,7 +78,9 @@ const Footer = () => (
     </LinkGrid>
     <LinkGrid>
       <Title>Sprawdź</Title>
-      <Link style={{ gridColumn: "1 / span 2" }}>chillwagon.pl</Link>
+      <Link style={{ gridColumn: "1 / span 2" }}>
+        chillwagon.pl/olszakumpel
+      </Link>
       <Link style={{ gridColumn: "1 / span 2" }}>024kumple.pl</Link>
     </LinkGrid>
     <StyledImg src={logoColor} alt="024crew logo" />

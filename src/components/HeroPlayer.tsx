@@ -29,6 +29,23 @@ const HeroPlayerWrapper = styled.main`
   }
 `;
 
+interface VideoProps {
+  song: Song;
+  isPlaying: boolean;
+}
+
+const StyledVideo = styled.video<VideoProps>`
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+
+  @media screen and (max-width: 768px) {
+    transform: ${({ song, isPlaying }) =>
+      song.title === heroSong.title && isPlaying
+        ? "translateY(calc(50vmax - 100%))"
+        : ""};
+  }
+`;
+
 interface Props {
   handleSongChange: (song: Song) => void;
   song: Song;
@@ -40,13 +57,14 @@ const HeroPlayer = ({ handleSongChange, song, isPlaying }: Props) => {
 
   return (
     <HeroPlayerWrapper>
-      <video
+      <StyledVideo
         src={window.innerWidth > 768 ? bg1080 : bg720}
-        width="100%"
         autoPlay
         muted
         loop
         ref={videoRef}
+        song={song}
+        isPlaying={isPlaying}
       />
       <HeroTextModule
         handleSongChange={handleSongChange}

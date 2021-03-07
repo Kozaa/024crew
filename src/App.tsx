@@ -28,14 +28,12 @@ const GlobalStyle = createGlobalStyle`
     transition: stroke 1s ease-in, fill 1s ease-in;
   }
 
-
   a, button, input {
     font-family: inherit;
     color: inherit;
     text-decoration: none;
     background: none;
     border: none;
-    
   }
 
   body {
@@ -56,8 +54,6 @@ const GlobalStyle = createGlobalStyle`
   #root {
     width: 100%;
     height: 100%;
-
-
   }
 `;
 
@@ -129,8 +125,8 @@ const App = () => {
         ></audio>
         <Header
           song={song}
-          playSong={isPlaying}
-          setPlaySong={setIsPlaying}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
           imgChanging={imgChanging}
           volume={volume}
           handleVolumeChange={handleVolumeChange}
@@ -138,11 +134,11 @@ const App = () => {
 
         <MusicPlayer
           fixed={true}
-          showPlayer={showPlayer}
+          showPlayer={mobile ? isPlaying || showPlayer : showPlayer}
           song={song}
           imgChanging={imgChanging}
-          playSong={isPlaying}
-          setPlaySong={setIsPlaying}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
           volume={volume}
           handleVolumeChange={handleVolumeChange}
           showVolume={true}

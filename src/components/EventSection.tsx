@@ -16,8 +16,8 @@ const EventSectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: ${({ theme }) => "1px solid " + theme.colors.secondary};
-  border-bottom: ${({ theme }) => "1px solid " + theme.colors.secondary};
+  //border-top: ${({ theme }) => "1px solid " + theme.colors.secondary};
+  //border-bottom: ${({ theme }) => "1px solid " + theme.colors.secondary};
   background-image: url(${eventBG});
   background-position: cover;
 `;

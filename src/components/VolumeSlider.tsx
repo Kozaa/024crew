@@ -4,19 +4,19 @@ import styled from "styled-components";
 const VolumeSliderWrapper = styled.div`
   position: absolute;
   bottom: 0;
-  left: -2;
+  left: -2px;
   transform: translateY(100%);
   width: calc(100% + 4px);
   height: 20px;
+
+  line-height: 1;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
   background-color: ${({ theme }) => theme.colors.main};
   border: ${({ theme }) => "2px solid " + theme.colors.secondary};
-
-  @media screen and (max-width: 768px) {
-  }
 `;
 
 const StyledInput = styled.input.attrs({

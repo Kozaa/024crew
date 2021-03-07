@@ -53,7 +53,7 @@ const HeroTextModule = ({
       videoRef.current.currentTime = 0;
       setTimeout(() => {
         videoRef.current!.play();
-      }, 500);
+      }, 700);
     }
   };
 

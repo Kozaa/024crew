@@ -61,8 +61,8 @@ const StyledNavItem = styled.div`
 
 interface Props {
   song: Song;
-  setPlaySong: Dispatch<SetStateAction<boolean>>;
-  playSong: boolean;
+  setIsPlaying: Dispatch<SetStateAction<boolean>>;
+  isPlaying: boolean;
   imgChanging: boolean;
   volume: number;
   handleVolumeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -72,8 +72,8 @@ const width = window.innerWidth;
 
 const Header = ({
   song,
-  setPlaySong,
-  playSong,
+  setIsPlaying,
+  isPlaying,
   imgChanging,
   volume,
   handleVolumeChange,
@@ -83,8 +83,8 @@ const Header = ({
       <StyledNavItem>
         <MusicPlayer
           song={song}
-          setPlaySong={setPlaySong}
-          playSong={playSong}
+          setIsPlaying={setIsPlaying}
+          isPlaying={isPlaying}
           imgChanging={imgChanging}
           volume={volume}
           handleVolumeChange={handleVolumeChange}

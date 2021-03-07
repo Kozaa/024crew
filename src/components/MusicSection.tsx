@@ -19,12 +19,27 @@ const MusicSectionGrid = styled.div`
   padding: 20px 0;
   margin: 0 auto;
   display: grid;
+  grid-template-areas:
+    "pos0 pos0 pos1 pos2"
+    "pos0 pos0 pos3 pos3"
+    "pos4 pos5 pos6 pos7";
   grid-template-columns: 27.5% 27.5% 22.5% 22.5%;
   position: relative;
 
   align-items: center;
   justify-content: center;
   grid-gap: 20px;
+
+  @media screen and (max-width: 768px) {
+    grid-template-areas:
+      "pos0 pos0"
+      "pos0 pos0"
+      "pos1 pos2"
+      "pos3 pos3"
+      "pos4 pos5"
+      "pos6 pos7";
+    grid-template-columns: 50% 50%;
+  }
 `;
 
 interface Props {
@@ -43,7 +58,7 @@ const MusicSection = ({ handleSongChange }: Props) => {
     setTimeout(() => {
       setAnimateModal(true);
       setModalAlbum(album);
-    }, 500);
+    }, 100);
   };
 
   const handleCloseModal = () => {
@@ -54,60 +69,14 @@ const MusicSection = ({ handleSongChange }: Props) => {
     }, 500);
   };
 
-  const imgGridConstructor = (album: Album) => {
-    let rows = "auto";
-    let columns = "auto";
+  const imgGridConstructor = (album: Album, i: number) => {
     const isMultiSongAlbum = album.songs.length > 1;
-
-    //CHANGE THEM TO SPAN SO MAYBE IT WROKS WELL WHEN WE CHANGE TEMPALTE ON MOBILE
-    switch (album.title) {
-      case "chillwagon":
-        rows = "1 / span 2";
-        columns = "1 / span 2";
-        break;
-
-      case "kodeks marki":
-        rows = "1/2";
-        columns = "3/4";
-        break;
-
-      case "krzyż":
-        rows = "1/2";
-        columns = "4/5";
-        break;
-
-      case "tempo":
-        rows = "2/3";
-        columns = "3/5";
-        break;
-
-      case "luna":
-        rows = "3/4";
-        columns = "1/2";
-        break;
-
-      case "trapiraci":
-        rows = "3/4";
-        columns = "2/3";
-        break;
-
-      case "gameplay":
-        rows = "3/4";
-        columns = "3/4";
-        break;
-
-      case "więcej":
-        rows = "3/4";
-        columns = "4/5";
-        break;
-    }
 
     return (
       <SongBlock
         bg={album.img}
-        rows={rows}
-        columns={columns}
-        title={album.title.toUpperCase()}
+        title={album.title}
+        gridPosition={`pos${i}`}
         handleClick={
           isMultiSongAlbum
             ? () => handleMultiSongAlbumClick(album)

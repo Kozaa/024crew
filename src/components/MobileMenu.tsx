@@ -6,7 +6,7 @@ import ContactButton from "./SVG/ContactButton";
 
 const MobileMenuWrapper = styled.nav`
   width: 100%;
-  height: 10vh;
+  height: 10vmax;
 
   position: fixed;
   bottom: 0;
@@ -26,6 +26,7 @@ const StyledLink = styled.a`
   align-items: center;
   justify-content: center;
   padding: 10px;
+  border-radius: 50%;
 
   transition: background 0.8s;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
